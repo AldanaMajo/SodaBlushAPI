@@ -2,8 +2,11 @@ package com.sodablush.api.service;
 
 import com.sodablush.api.dto.DrinkDTO;
 import com.sodablush.api.dto.DrinkDetailResponseDTO;
+import com.sodablush.api.exception.NotFoundException;
+import com.sodablush.api.repository.CodeExerciseRepository;
 import com.sodablush.api.repository.DrinkDefinitionRepository;
 import com.sodablush.api.repository.DrinkSyntaxRepository;
+import com.sodablush.api.repository.TestRepository;
 import com.sodablush.api.model.Drink;
 import com.sodablush.api.repository.DrinkRepository;
 import org.springframework.stereotype.Service;
@@ -18,11 +21,16 @@ public class DrinkService {
     private final DrinkRepository drinkRepository;
     private final DrinkDefinitionRepository definitionRepo;
     private final DrinkSyntaxRepository syntaxRepo;
+    private final CodeExerciseRepository exerciseRepo;
+    private final TestRepository testRepo;
 
-    public DrinkService(DrinkRepository drinkRepository, DrinkDefinitionRepository definitionRepo,DrinkSyntaxRepository syntaxRepo) {
+    public DrinkService(DrinkRepository drinkRepository, DrinkDefinitionRepository definitionRepo,
+            DrinkSyntaxRepository syntaxRepo, CodeExerciseRepository exerciseRepo, TestRepository testRepo) {
         this.drinkRepository = drinkRepository;
         this.definitionRepo = definitionRepo;
         this.syntaxRepo = syntaxRepo;
+        this.exerciseRepo = exerciseRepo;
+        this.testRepo = testRepo;
     }
 
     public List<DrinkDTO> getDrinksForCan(UUID canId) {
@@ -48,7 +56,7 @@ public class DrinkService {
     public DrinkDetailResponseDTO getDrinkDetails(UUID drinkId) {
         //busca el trago 
         Drink tragoBase = drinkRepository.findById(drinkId)
-                .orElseThrow(() -> new RuntimeException("Lección no encontrada"));
+                .orElseThrow(() -> new NotFoundException("Lección no encontrada"));
 
         //dto con los datos básicos
         DrinkDetailResponseDTO dto = new DrinkDetailResponseDTO();
@@ -78,8 +86,15 @@ public class DrinkService {
                 dto.setRecommendations(sintaxis.getRecommendations());
                 dto.setOutputDemoHtml(sintaxis.getOutputDemoHtml());
                 dto.setOutputDemoCss(sintaxis.getOutputDemoCss());
+                dto.setTokens(sintaxis.getTokens());
+                dto.setAnimations(sintaxis.getAnimations());
             });
         }
+
+        // Para tragos tipo mini-test o prueba final, exponemos el id del recurso
+        // para que el cliente sepa a que endpoint ir.
+        exerciseRepo.findByDrinkId(drinkId).ifPresent(ejercicio -> dto.setExerciseId(ejercicio.getId()));
+        testRepo.findByDrinkId(drinkId).ifPresent(test -> dto.setTestId(test.getId()));
 
         return dto;
     }

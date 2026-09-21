@@ -6,5 +6,6 @@ import com.sodablush.api.model.Question;
 
 @Repository 
 public interface QuestionRepository extends JpaRepository<Question, UUID> {
+    java.util.List<Question> findByTestIdOrderByOrderIndexAsc(UUID testId);
 
 }

@@ -1,0 +1,600 @@
+{
+  "_format": "simpler-project",
+  "_version": 2,
+  "_exportedAt": "2026-09-21T06:17:37.241Z",
+  "project": {
+    "id": "d8359509-6398-481a-a302-b3a39ad9dd72",
+    "name": "Aprendizaje de css",
+    "status": "in-progress",
+    "createdAt": "2026-09-10T01:49:12.332Z",
+    "updatedAt": "2026-09-15T00:55:51.441Z"
+  },
+  "modules": {
+    "seed": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "projectName": "Aprendizaje de css",
+      "oneLineSummary": "Una app para aprender css interactivo",
+      "problemStatement": "El aprendizaje aburrido del lenguaje css, por medio de mecánicas de aprendizajes basados en tragos (puntos clave) donde cada lata es un concepto diferente. (una lata equivale a un concepto, ejemplo. hover, y cada trago es una parte de ese concepto: definición, mini test, estructura de sintaxis y por ultimo prueba final de input (donde escribe el código) y output (donde ve lo que hace el código)) todo esto basado en una api consumible entre plataformas tanto móvil como computo.",
+      "targetAudience": [
+        {
+          "id": "62ea7515-dacc-4b40-b70a-6f5ded6fc919",
+          "label": "Estudiantes de software"
+        },
+        {
+          "id": "01dc84ac-e52d-4a83-ab73-d70a25c47ae7",
+          "label": "estudiandes cauales"
+        }
+      ],
+      "hiddenFailureReason": "1. mala organización de la información\n2. falta de organización del equipo\n3. mal estructura de las actividades de desarrollo por roadmap\n4. mala comunicación\n5. muchas características de la aplicación\n6. mala planificación\n7. mal uso o uso nulo de metodologias agiles\n8. mala exploración de la app y bugs sueltos.\n9. un spich de nuestra app, que no podamos explicar lo útil que es."
+    },
+    "anatomy": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "features": [
+        {
+          "id": "16cf96f3-7067-472f-91a6-6824c9d0523a",
+          "name": "login",
+          "description": "manejar inicios de sesión y registro",
+          "type": "core",
+          "complexity": "medium",
+          "dependencies": [
+            "17417292-cf74-40f6-82a2-afc1dc512e4f"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "17417292-cf74-40f6-82a2-afc1dc512e4f",
+          "name": "home",
+          "description": "inicio de la aplicacion",
+          "type": "core",
+          "complexity": "low",
+          "dependencies": [],
+          "associatedNodes": []
+        },
+        {
+          "id": "c976fb03-0c37-49ee-a2c0-5da3633c249a",
+          "name": "edición de perfiles",
+          "description": "hud unico para perfiles y que se pueda editar no con fotos sino con avatares.",
+          "type": "nice-to-have",
+          "complexity": "medium",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "0c263997-fdcf-4ef1-af02-e61630643d73",
+          "name": "galeria de latas",
+          "description": "el usuario puede ver todas las latas que existe y leer descripciones pero no puede acceder a los tragos",
+          "type": "supporting",
+          "complexity": "medium",
+          "dependencies": [
+            "17417292-cf74-40f6-82a2-afc1dc512e4f"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "d05963a1-fb2f-409b-9a47-a0c34fe25ebe",
+          "name": "engranaje de ajustes",
+          "description": "idioma, informacion de la cuenta, y preferencias de notificaciones acerca de nosotro y aparto de donar, claro oscuro, ayuda y comentarios, nivel de sonido  y otras configuraciones de sonidos",
+          "type": "supporting",
+          "complexity": "high",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "aa2d44e6-ba23-4cf9-9062-525ec5f18c7d",
+          "name": "estanteria",
+          "description": "donde esyan todas las latas llenas de soda (las latas que esten a color es la que se pueden consumir es decir las que se pueden aprender, y en gris oculto las que no se pueden consumir)",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [],
+          "associatedNodes": []
+        },
+        {
+          "id": "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+          "name": "consumir una lata",
+          "description": "al tocar una lata esta hace la animación de abrir y una sonido de trago abre el primer trago es decir la definicion y asi suesivamente. hazta el ultimo trago, cuando se acaba se desaparece la lata y suena un sonido de estrujar la lata vacia.",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "dbfe394e-6c06-42cf-90d5-9545386b5307",
+          "name": "primer trago (definicion)",
+          "description": "el primer trago es teoria con algunas animaciones de como se veria aplicado a diferentes casos ",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "25151742-aeca-40ef-800e-80afbebf2aad",
+          "name": "segundo trago (mini test interactivo)",
+          "description": "aquí se le hace un test diagnostico al usuario para ver si aprendió algo de teoría y algo de lógica.",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "dbfe394e-6c06-42cf-90d5-9545386b5307"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "13754e38-cd73-4fab-9761-06f3c1572570",
+          "name": "tercer trago (estructura de sintaxis)",
+          "description": "en esta parte se explicara la sintaxis del css y como se vería además se le darán unas recomendaciones, pero con alguna forma de tecnica educativa para q al usuario se le quede esa informacion",
+          "type": "core",
+          "complexity": "medium",
+          "dependencies": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "25151742-aeca-40ef-800e-80afbebf2aad"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "e032daa1-bfc6-479c-be1c-508611621bae",
+          "name": "cuarto trago (prueba final y ultimo trago)",
+          "description": "aqui se hara una prueba de input (donde escribe el código) y output (donde ve lo que hace el código)) todo esto basado en una api consumible entre plataformas tanto móvil como computo.",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "13754e38-cd73-4fab-9761-06f3c1572570"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "934fb7a3-4d71-49ed-8a8d-89f1ae1e6a34",
+          "name": "suspender cuenta",
+          "description": "suspender cuenta",
+          "type": "supporting",
+          "complexity": "medium",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "e2dc4206-3715-4800-b30a-8dcc740e2d9c",
+          "name": "recuperar contraseña",
+          "description": "a travez de correo",
+          "type": "nice-to-have",
+          "complexity": "medium",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "associatedNodes": []
+        },
+        {
+          "id": "5f9e15c7-ef24-4c93-bb1a-c70a974c2ffb",
+          "name": "Api consumible",
+          "description": "Api con toda la documentación, así como también las mecánicas, etc. Una version hecha en JAVA y otra en C#.",
+          "type": "core",
+          "complexity": "high",
+          "dependencies": [],
+          "associatedNodes": []
+        },
+        {
+          "id": "34f7e4ae-dfc2-4a13-a292-e67086924f1e",
+          "name": "sistema de logros",
+          "description": "logros por avanzar o hacer actividades en la app. y aparecerían en la estantería",
+          "type": "nice-to-have",
+          "complexity": "medium",
+          "dependencies": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "aa2d44e6-ba23-4cf9-9062-525ec5f18c7d",
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573"
+          ],
+          "associatedNodes": []
+        }
+      ]
+    },
+    "architecture": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "nodes": [
+        {
+          "id": "5d55a39f-d8f5-41df-ad6d-7cbddc3c5ca7",
+          "name": "home",
+          "description": "ultima lata abierta que no este terminada, scroll para ver las siguientes latas a consumir, además de otras opciones de navegación.",
+          "parentId": null,
+          "associatedFeatures": [],
+          "order": 0
+        },
+        {
+          "id": "f085216e-a4b0-4efe-bd76-4eb43d11a33d",
+          "name": "login",
+          "description": "inicio o registrar sesion",
+          "parentId": "5d55a39f-d8f5-41df-ad6d-7cbddc3c5ca7",
+          "associatedFeatures": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "e2dc4206-3715-4800-b30a-8dcc740e2d9c"
+          ],
+          "order": 0
+        },
+        {
+          "id": "e9a27973-1a6b-4668-a329-cc751930bf25",
+          "name": "estantería ",
+          "description": "lugar donde están todas las latas como progresos del jugador. aparece el progreso de la lata que esta consumiento y puede scrollear para ver las demalatas",
+          "parentId": null,
+          "associatedFeatures": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "aa2d44e6-ba23-4cf9-9062-525ec5f18c7d"
+          ],
+          "order": 1
+        },
+        {
+          "id": "45a8ac26-7a1f-486f-8197-067c0198aca4",
+          "name": "galeria de latas",
+          "description": "todas las latas q existen  en la app",
+          "parentId": null,
+          "associatedFeatures": [
+            "0c263997-fdcf-4ef1-af02-e61630643d73"
+          ],
+          "order": 2
+        },
+        {
+          "id": "9fd7f2e9-51d4-42fc-9b5e-0b94d68f8963",
+          "name": "perfil",
+          "description": "editar cosas como el avatar y nombre",
+          "parentId": null,
+          "associatedFeatures": [
+            "c976fb03-0c37-49ee-a2c0-5da3633c249a",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a"
+          ],
+          "order": 3
+        },
+        {
+          "id": "7fea7ecf-5627-4ced-88c2-e595a945941d",
+          "name": "preferencias del usuario",
+          "description": "configuración de apariencia de la app entre otras cosas como recuperar contraseña",
+          "parentId": null,
+          "associatedFeatures": [
+            "d05963a1-fb2f-409b-9a47-a0c34fe25ebe",
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "e2dc4206-3715-4800-b30a-8dcc740e2d9c"
+          ],
+          "order": 4
+        },
+        {
+          "id": "b8019247-0cd1-482d-9922-1d45d0d56409",
+          "name": "consumir sodas",
+          "description": "toda la parte educativa",
+          "parentId": null,
+          "associatedFeatures": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573",
+            "dbfe394e-6c06-42cf-90d5-9545386b5307",
+            "25151742-aeca-40ef-800e-80afbebf2aad",
+            "13754e38-cd73-4fab-9761-06f3c1572570",
+            "e032daa1-bfc6-479c-be1c-508611621bae",
+            "5f9e15c7-ef24-4c93-bb1a-c70a974c2ffb"
+          ],
+          "order": 5
+        }
+      ]
+    },
+    "logic": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "blocks": [
+        {
+          "id": "4d2ed195-5d0c-4179-a979-e6569871d056",
+          "type": "user-flow",
+          "title": "Consumir lata (accion de)",
+          "content": "1. Usuario mantiene presionada la lata que quiere consumir\n2. si la lata se puede consumir, entonces se reproduce la animación y el sonido de abrir una lata\n3. Se abre el primer trago. \n4. La lata se hace transparente y se muestra el liquido, y se convierte en una especie de dashboard, dependiendo del trago, así cambiara esta parte de la sección.",
+          "status": "defined"
+        },
+        {
+          "id": "e57d8b2a-5b80-4b62-93f2-a7b5e23cbdf6",
+          "type": "user-flow",
+          "title": "Consumir tragos (primer trago)",
+          "content": "1. aparece el modulo de teoria/definion de la palabra o concepto de css a aprender.\n2. se muestra en una tarjeta semi transparente que empaña el fondo del liquido burbujeante.\n3. el usuario lee la información.\n4. el usuario scrollea para leer \n5. el usuario tiene un botón para tomar el siguiente trago y otro para guardar la soda para mas tarde.\n\nConcepto: Primer Trago: La Degustación (Definición)El objetivo aquí es no aburrir. Es el primer contacto, debe ser rápido y visual.\n\nMecánica: Seria texto corto para no aburrir + un gif para enseñar rápido como se escribe y como se vería sin usar HTML en realidad.",
+          "status": "defined"
+        },
+        {
+          "id": "f437f66b-0f6a-414a-a232-61872c242425",
+          "type": "user-flow",
+          "title": "Consumir tragos (segundo trago)",
+          "content": "1. el usuario puede tomar el segundo trago que es el test de validación del primero, es decir de la teoría.\n2. se le muestran tarjetas del test, tarjetas tipo flashcards que aparecen semi transparentes y muestran el progreso del test con una barra en la orilla de la tarjeta.\n3. si el usuario se aquiva en aunque una, se le recomienda beber otra vez el primer trago (teoría)\n4. si el usuario pasa el minitest entonces puede tomar el siguiente trago.\n\n\nnuevo concepto: 2. Interacción Táctil: El Swipe de Burbujas\nHacer clic en opciones de \"A, B o C\" puede ser monótono.\n\nLa Mecánica: Convierte las flashcards en elementos deslizables (estilo Tinder). En el centro de la pantalla aparece un fragmento de código o una afirmación. El usuario debe deslizar la tarjeta hacia la derecha (Verdadero/Correcto) o hacia la izquierda (Falso/Incorrecto).\n\nEl Beneficio: Esta acción física continua mantiene los pulgares ocupados y acelera el tiempo de respuesta, generando ese ciclo ultrarrápido que retiene la atención.\n\n\nmecanica de castigo leve: La Mecánica: La tarjeta tiene un medidor de \"efervescencia\" (que visualmente pueden ser burbujas animadas). El usuario tiene, por ejemplo, 3 intentos (o 3 burbujas).\n\nEl Castigo Suave: Si se equivoca, la respuesta incorrecta se disuelve y pierde una burbuja, pero se queda en la misma pregunta para intentarlo de nuevo.\n\nEl Game Over: Solo si pierde todas las burbujas (la soda se queda \"sin gas\"), se le recomienda volver al primer trago para refrescar la teoría. Esto lo hace sentir más como un juego y menos como un examen escolar.\n\n\ncada swipe sea un burbujeo sonoro\n",
+          "status": "defined"
+        },
+        {
+          "id": "9b8bff95-8d17-4bbc-b9eb-8284bcd460ff",
+          "type": "user-flow",
+          "title": "Consumir tragos (tercer trago)",
+          "content": "1. el usuario puede tomar el tercer trago que es la sintaxis (teoria)\n2. se muestra la sintaxis compentada con un poco mas de teoria.\n3. el usario puede dar click en la sintaxis para que se le abra una subpagina dentro de esa seccion.\n4. en la subseccion se puede modificar la sintaxis con cosas predefinidas (texto del css no editable, solo se muestra palabras que pueden arrastrarse e intercambiar dentro de la sintaxis predefinida)\n5. se muestra que es lo que hace el css con una animacion que aparece al lado del como un output.\n6. equis para volver a la pagina principal de la seccion.\n7. boton de seguir o de guardar la soda.\n\n El Output \"Maximalista\" Inmediato, Ya tienes planeado que haya una animación al lado que muestre lo que hace el código. Hay que potenciarla al máximo.  La Mejora: La reacción del output no debe ser estática o aburrida; debe ser exagerada. Si el usuario cambia un border-radius, la caja del output debe transformarse rebotando como si fuera de goma. Si cambia un background-color, pueden saltar destellos o stickers animados que acompañen la estética del diseño web maximalista. Cada cambio en la \"ruleta de código\" debe generar una recompensa visual explosiva y satisfactoria en tiempo real.\n",
+          "status": "defined"
+        },
+        {
+          "id": "2ccdb287-3a17-42d5-a611-e98bfd2b2ea1",
+          "type": "user-flow",
+          "title": "Consumir tragos (Cuarto trago)",
+          "content": "1. el usuario puede tomar el cuarto trago\n2. se muestra un input donde sale una instruccion y el usuario debe escribir la sintaxis de esa instruccion\n3. hay un boton de \"summit\" para validar que este correctamente escribido\n4. si falla no puede tomar el ultimo trago y tiene que volver a esbrirlo.\n5.  se le muestra alguna pista de como escribirlo\n6. si el usuario escribio bien la sintaxis del lenguaje entonces se le muestra el output.\n\n\nPara que esta prueba final sea un subidón de adrenalina en lugar de un examen escolar aburrido, aquí te dejo las mejoras:\n\n1. El \"Teclado Efervescente\" (Autocompletado Gamificado)Dado que la app es consumible tanto en móvil como en cómputo, el input en móviles necesita ayuda urgente.  La Mejora: En lugar de dejar al usuario solo con el teclado nativo de su teléfono, implementa una barra de sugerencias sobre el teclado llena de \"burbujas\" con propiedades y valores de CSS. A medida que escriben una o dos letras, la burbuja correcta se infla. Tocan la burbuja y ¡paf!, se autocompleta la palabra junto con los dos puntos o el punto y coma.\n\nEl Beneficio: Acelera la escritura, reduce los errores de tipeo (que no tienen nada que ver con no saber CSS) y hace que la experiencia de \"escribir código\" se sienta moderna y fluida.",
+          "status": "pending-decision"
+        },
+        {
+          "id": "83f67ddf-a838-4186-a5d1-36481809c5c6",
+          "type": "business-rule",
+          "title": "Conmir latas (cual lata debo consumir)",
+          "content": "la latas son como módulos que explican un concepto, al principio se desbloquea una sola lata para consumir, las demás permanecerán bloqueadas hasta que se termine la primeréate, y así sucesivamente para las demás. solo se desbloqueara una a la vez.",
+          "status": "defined"
+        },
+        {
+          "id": "fc3272f0-73fa-487e-907c-ba011ae4e604",
+          "type": "business-rule",
+          "title": "Optencion de datos del usuario",
+          "content": "para el login necesitaria:\nnombre, correo y contraseña. (al usuario se le asignara un HUD unico con la libreria de blobatar, la cual asigna un avatar unico ligado al HUD)",
+          "status": "defined"
+        },
+        {
+          "id": "0b000d71-8aff-433b-a8ea-4db3b9cb7ef3",
+          "type": "business-rule",
+          "title": "recuperar contraseña",
+          "content": "se hará con correo de gmail, con la credenciales de escritura de usuario, es decir no se usara otro microservicio como firebase",
+          "status": "defined"
+        },
+        {
+          "id": "42073e1e-bc67-4eb2-95ce-488400bbdad9",
+          "type": "user-flow",
+          "title": "Cuando se termine todas las latas",
+          "content": "si el usuario se termina todas las latitas entonces se le entregara un reconocimiento llamado: Señor de las latas.",
+          "status": "defined"
+        },
+        {
+          "id": "2eafaeee-e3ee-4bea-bad3-e3df6d9fce68",
+          "type": "user-flow",
+          "title": "el usuario depues de haber finalizado todo ",
+          "content": "el progreso puede reestablecerse manteniendo el recomiento. ",
+          "status": "defined"
+        },
+        {
+          "id": "493889b8-25c0-4dad-bdf1-df9fe42c2208",
+          "type": "user-flow",
+          "title": "si el usuario vuelve a terminarse todas latas",
+          "content": "se le entregara otro reconocimiento llamado: señor del reciclaje. ",
+          "status": "defined"
+        },
+        {
+          "id": "869a8d9f-284e-4560-b9c1-6c1bd36bd15a",
+          "type": "user-flow",
+          "title": "estanteria",
+          "content": "1. el usuario puede acceder a estanteria de latas que ya esten consumidas\n2. tiene la opcion de acceder al apartado de logros",
+          "status": "defined"
+        }
+      ]
+    },
+    "stack": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "categories": [
+        {
+          "key": "frontend",
+          "label": "stack.category.frontend",
+          "choice": "React",
+          "justification": "Haremos una app web"
+        },
+        {
+          "key": "backend",
+          "label": "stack.category.backend",
+          "choice": "java y c#",
+          "justification": "haremos una api en java y otra en c# por que asi nos pide el modulo."
+        },
+        {
+          "key": "database",
+          "label": "stack.category.database",
+          "choice": "Neon",
+          "justification": "por que es mas fácil integrar neon y sabemos postgress"
+        },
+        {
+          "key": "auth",
+          "label": "stack.category.auth",
+          "choice": "Auth0",
+          "justification": "por que no necesitamos otro microservicio"
+        },
+        {
+          "key": "infra",
+          "label": "stack.category.infra",
+          "choice": "null",
+          "justification": "null"
+        },
+        {
+          "key": "services",
+          "label": "stack.category.services",
+          "choice": "null",
+          "justification": "null"
+        },
+        {
+          "key": "libraries",
+          "label": "stack.category.libraries",
+          "choice": "",
+          "justification": ""
+        }
+      ]
+    },
+    "identity": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "finalName": "Soda Blush",
+      "nameVariants": [],
+      "colors": [],
+      "typography": [],
+      "toneAdjectives": [
+        "friendly",
+        "fun",
+        "warm"
+      ],
+      "toneDescription": "",
+      "visualReferences": [],
+      "logoConcept": "",
+      "logoSketch": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAQAElEQVR4Aezbi3bbOLIFUHf//zdPj/O2HYkCSTyqCvuunsSRSKCwC9Qhldx///N/1wX+d/3UnmcGKaPnkoxFYLqA6+g8+b9v/u+6wD/XT+15ZpAyei7JWHcF/rs7wH7nu47O91yAnDdzBoE+AiNH8Wk4UtfYPwUEyE8IvxEgQIDAOQEBcs7L0QQIECDwUyBxgPxcgd8IECBAYImAAFnCblICBAjkFxAg+XtoBQSmC5hwrECWf0QnQMbuA6MTIEDgtMD0f0R3MbEEyOnWOoEAAQLFBC4mlgBZsQ/MSYAAgQICAqRAEy2BAAECKwQEyB31i98b3pnSuQQI3BJwckcBAXIH8+L3hnemrHauDK7WUevZSUCA7NTtKWs9FwkyeEpTTEJgiIAAGcJad9DXKxMJr40cQaCGgACp0UerIECAwHQBATKdvOiE5765KopgWQRGCsQbW4DE60nOinxzdb5vQve8mTNCCQiQUO1QzFYCQnerdldcrACp2FVreiTQ/pong3YrR24tIEC2br/FPxS4+mQgeN45JyBMmOJ9If5rEBAgDUgOIdAkcDV4mgbPctAEhAlTZNFeXWdzgKwu1PwECBAgEEtAgJzth8fns2KOJ0CgqIAAOdtYj89nxRx/W8AABGIKCJCYfVEVAQIEwgt0CRDf6oTvswIJECDQXeB2gHwLj+Df6nRHMyCBMwLfrpEzxzv2owC9jxrRfr4dIMIjWkvVE03ANXKnI/Tu6I0+93aAjC7Q+AQIJBZQemkBAVK6vRZHgACBcQL7BoivVsftKiMTmCbgQp5G/WCifQMkxVerDzrmJQIEPgi4kD9gTP9x3wCZTm1CAnsIeCZY2+eZ/gJkba/NTqCcQJVngqyNmel/KkBmJlvW5qmbAIGRAj6FRuqeHftUgMxMtlcLsY1eCdV8X99r9rV9VZE+hdqrrnrkqQCJhGAbRerGg1oGvaTvg2ANG0Mg2R1S2gCJ0W1VECBAoKNAsjskAdKx94YiQIBAAIFpJQiQadQmIkCAQC0BAVKrnydWk+zL1hMrcygBAnMEBMgc54CzzPqyNV9QBWyWkgiEFBAgIdtSqahZQVXJzFoI5BAQIDn6FKNKDxMx+qAKAkEE+gdIkIUpo1XgRCqUe5g4sfZDzl7jHE7izU8CzD9xLPqDAFkEH2facqlwgrbX2nuNc6L07Q9lHmELCJAIXShcg/vEqc0tOpldFLWxAiRqZ4rU5T6xSCOXLsMuWsp/MLkAOcDx1gIBN5sL0E1J4JqAAPng5scAAm42AzRBCQTaBARIm5OjCBAgQOCLwNgA8XXEF25/JJBRYMaFHMNln5X28R4bIL6O6NMloxBYKrDPhbzPSvtsqLEB0qfGg1HcLxzgeIvAEgFX5RL2JZOuD5Bbu839ws9d4zcCYQRclWFaMbyQ9QFitw1v8r4T3Lo72ZfNygk0CqwPkMZCHUbgvIC7k/NmzjgtsPEJAmTj5ls6AQIE7ggIkDt6ziVAgMDGAgJk4+bHWLoqCBAYLjDorwMFyPDOmWCOwKArZE7xZtlKYMFeHfTXgQJkq407f7HzLpVBV8h8MjOWF4izV+9SC5C7gs4/FIh0qcwLs0MSbxIoIyBAyrTSQl4JDAszyfSKPtD7mtWzGQKkp6ax9hL4tdphyfRrAr/3E9CsfpZvbwKkp6axCBAgsJGAACnVbI/npdppMQSCCywMkOAyKcv7J2XViibQLuAmqd1q/JECZLyxGQgQ6CbgJqkbZYeBBEgHREMQyCagXgI9BIYGiIfNHi0yBgECBGIKDA0QD5sxm64qAgQI9BAYGiA9Cgw5hqIIECBAoPP/H4jvrGwpAgQIbCPQ9wnEd1bbbBwLJXBKoN/N5alpHTxWoG+AjK3V6AQIZBVYenMpvUZtGwEySrbouC7FXI3Vr2/9Wppe3wo4/F/mHgmQw9bWe/PuimJfindXV+98/Yrf08w9EiDx95cKCRAgEFJAgIRsi6IIEKgnUG9FAqReT62IAAECUwQEyBRmkxAgQKCegACp19OqK7KuaQKZ/13QNCQTvQsIkHeEbP+5vLN1LFu9mf9dUDbr3PUKkIT9c3knbFqQkt18zGlEOecnbALkCYyXCVQUcPMxp6u7OAuQOfvJLAQIECgnIEDKtdSC4gmoiEBNgbABsst3iOu2FeF19mYmUEMgbIDs8h3ium1EeJ29mQnUEAgbIB94/UiAwEgBD6MjdUuPLUBKt9fiCDQIeBhtQHLIIwEB8kjFawQI/BDwK4EDAQFygOMtAgQIEHguIECe23iHAIHoAv7+ZmmHBMhQfoMTIDBUwN/fDOV9NbgAeSXkfQIECBB4KCBAHrJ4kUBtgR2++andwRirEyAx+qAKAlMFfPMzlbvsZAKkbGstjMDOAp6xZnRfgMxQzjiHmgmkFvCMNaN9AmSG8so53Iit1Dc3gVQCZz8uBEiq9l4o1o3YBTSndBU4+6nUdfKUgy0r+uzHhQBZ1ioTE9hE4Oyn0iYsFZYpQCp00RoIECCwQGBNgFR6pK20lgUbcMSUW455sA8fvvXwxS3lLPqGwJoAqfRIW2ktNzZSxlNLfYYe7MOHbz18MWMX1bxSYE2ArFyxuQn8FPAZ+hPCb6UEZt4Y/R0gpSgt5qPAzI31cV4/E/hbwG7826TPKzNvjARIY88qbPeZG6uRNfBhFToemPfNbozcndbaBEijlO3eCFXmsCUdL6NnIXsICJA9+myVqwU80CzsAPxR+F8CBPQo6O3H3X1reaBZeAnAP8S/cW1+CZDc0IdIi9680ZtFFQ+a1tYaBGtYAjcFblybXwLkZiFO/0vgRm/+GssLBEYJuNEZJVt73PcAsXVqt9jqCLwWuH+j83oOR9QTeA8QW6deW62IAAEC4wXeA2T8JGYgQIAAgXoCAiRGT1VBgMCmApn/EkGAbLppLZsAgRgCmf8SQYDE2EOqIEBglYB5LwsIkMt080/M/Kg7X8uMPQXsvZ6adcYSIIl6mflRNxGzUh8I2HsPULz0JkBsgpsCTidAYFcBAdLYeY/wjVAOIzBTwIU5U/uvuQTIXySPX/AI/9jFqwR6CpzOg80vzJ72V8YaHiCnN8SVVTiHAIESAvIgVxuHB4gNkWtDqJYAAQLPBT4/EgwPkOeFeIfAYoGm6T9fME2nOIjAb4Fq++fzI4EA+d1oPywTCH2Nfb5glhmZOKlA7f0jQJJuy1Jl/7rGQgdJKXGLIdBF4EaAdJnfIAT+CPwKkj+vXPpJDl1i63AS+Q6IqYYQIKnapdgWgU451DKVYz4JvJIXMJ+4Cvyhb4DYHwW2hCVkEMhZ46uAybmqnavuGyD2x857ydq7Crgb68ppsCECfQNkSIkGJbCjgLuxHbuebc17Bki2LqmXAAECAQUESMCmKCmSgK+SInVDLQ8EFm5RAfKgH16qJHD36vJVUufdYLjeAgu3qADp3UzjBRNYeHUFk1AOgd4CAqS3qPEIECCwiYAASdZo5RIYKnD3G7+hxRk8moAAidYR9RBYKbDrN369grPXOCv3wIm5BcgJLIcSIFBUoCk4G9bea5yGqSIcIkAidEENBIoLbHZjfq6biXEEyLlWO5oAgQsCm92YnxNKjCNAzrW6+NFDb4WK21kegf0EXgeIz5SNdkXiW6GNumSpBKIIvA4QnylReqUOAgQIXBMYdNbrABk0sWEJECBAILfApwDxbVXuZqqeAAECMwU+BYhvq2bSm2ukQN+boZGVGvtIQB+PdNa/9ylA1pejAgJ9BNwM9XFcPYo+ru7A8fwC5NjHuwQIECDwROBmgDQ9YD6ZuuXl0eO31OAYAgQuC7iEf9Bld3hS/80AGf2AOXr8H71d/euT3qwuy/xXBTT0j9wel/Cf9T77KbvDk/pvBsgzLa+/FvjzKfOkN6+HcERMgUgNjSmkqiICAmRZI33KLKM3MQECXQQESBdGgxAgQGA/AQFy2HNvEiBAgMAzAQHyTMbrBAgQIHAoIEAOebxJgMAqgfvz/vmHKvfHSjLC5CW/DpDJBSVpkzIJEAgvsOE/VJm85NcBMrmg8HtSgQQIECDwXeB1gHw/zC/pBMoV7FG4XEstKL2AAEnfwl0W4FF4l05bZx4BAZKnVyolQCCHwDZVCpBtWm2hBAgQ6CsgQPp6Go3AvgL+mipR7/s0S4AkavkupVpnUgF/TZWocX2aJUAStVypBAgQiCQgQFZ2o+UpsuWYlWs4nDt18Ycr8yaBmgLnViVAznn1PbrlKbLlmL5V3RvtPTPe//s5Rrbif5btNwIEmgQESBOTg5oF3jPj/b/mwx1IgEBeAQGSt3cqDyfwX7iKFNRZ4M/jdeeBcw4nQHL2TdUhBTx7hWxLz6K0+JOmAPnE4Q8ECBAg0CoQKkBai3YcAQIECKwXECDre6ACAgQIpBQQICnbpmgCvQU6jbftXzLvuXAB0um6MQwBAu8C2/4l854LFyDve95/BAgQIHBeQICcN3t0htcIECCwnYAA2a7lFkyAAIE+AgKkj6NRCBBYJWDeZQICZBm9iQkQIJBbQIDk7p/qCRAgsExAgCyjXzTxX/9cfVEdnaYttpxOKoYhMEdAgMxxjjNLsX+uXmw5cfaJSgg0CAiQB0juah+geIkAge4C2QcUIA866K72AYqXCBAg8EVAgHwB8UcCZwQ8rZ7Rcmw1AQFSraM7rafnWi8mgafVnk0wVjaBvgFy8SLMhqbeggKSoGBTLWm0QN8AcRGO7pfxCeQXcKOZv4dvb9/X0DdAvg/pFwIECBwIuNE8wMn11rYB4iYo10ZVLQEC8QS2DRA3QU82o2R9AtP3ZaMRqCCwbYBUaN6QNUjWIawGJVBRYM8AcZd9cy8DvAl4+fQR8iPGvLxAJ6YSyBkgd4ndZd8UBHgT8PLpI+RHjHl5gU5MJTApQNzjpNoVQ4q1B4awGpTAQoFJAeIeZ2GPg0xtDwRpxN0ynE/gt8CkAPk9nx8IECBAoIiAACnSSMsgQIDAbAEBMlncdASWCPgrqCXscyZd11wBMqfDZkkrsO7i7Ermr6C6csYabF1zBUisnaCacALrLs5wFOkLsoDeAgKkt6jxpgoUeT6YamYyAr0EBEgvyerjBP2k9nxQfeNZ30uBhdemAHnZHQd8F/jn7ftvfiFAIJjAwrsoARJsLyiHAIFRAgtv1UctafG45wNEDxa3zPQECFwTWHirfq3gP2cF/el8gOhB0FbuUpY7mF06bZ3xBc4HSPw1qbC0gDuY0u21uFQCAiRVuxR7TcBZBAiMEBAgI1QXjOmLnQXopiSwuYAAKbIBfLFTpJGWQSCRQEuAJFqOUgkQIEBgloAAmSVtntgCvgOM3R/VhRQQICHboqjpAlG/A5wOsX5CWb6+B60VCJBWKccFFfBxE7Qxl8uS5Zfppp8oQKaTm7CvwNyPG3HVt3tGyy1QPEByN0f18QTmxlW89auIwEcBAfJRw88ECBAg0CwgQJqpHEiAwBkBx9YXOA4QbwXYwgAABWpJREFUX/jW3wFWSIAAgYsCxwHiC9+LrE4jQIBAfYHjAKm//rgrVFmzgAflZioHEugqIEC6chpshYAH5RXq5uwuEOFO6GQNAqT7LjAgAQLJBdaUH+FO6GQNAqTnVjmZ3j2nNhYBAgRmCwiQZ+JXwuBkej+b2usEQglcuRZCLUAxowQEyDNZYfBM5uXrDigm4Foo1tB+yxEgDywv33BdPvFBEV4iQIBAcAEB8qBBl2+4Lp/4oAgvESBA4LTA3BMEyFxvsxEgQKCMgABpbaWvp1qlHEeAwCYCAqS10b6eapXKfJzaCRA4ISBATmA5dL2AB8H1PVABgV8CAuSXhN9TCHgQTNEmRWYTuHhn1jVAspmp94nAxc30ZDQvEyAQSuDBBX7xzkyAhGpskGIubqYg1SuDAIFDgX4XuAA5hPYmgSwC6iQwX0CAzDc340uBB4/YL88JdkCBJQQTVU5AAQESsCn3SqrwydXvEfue5Y2zCyzhxuqduolA/wDJ+flVqN0+uQo101IIhBboHyA+v0I3XHEECGQViHd33j9AsvYmct3x9k1kLbVlE1Bvo0C8u3MB0ti6pYfF2zdLOUxOgEAMgXEB4q45RodVQYBAaIElH5WdJh0XIO6aJ21a0xAgkFlgyUflr0lvBsm4AMncUbUTIEBgB4FfQXJxrQLkIpzTNhO4eae2mdY2y919oSUCxLW9+zaesP6bd2oTKjTFCoHNP3xKBIhre8WVY859BDb/lDxqdNQPn0ktKxEgR/31XmABpSURiPopmYRvRZmTWiZAVjTXnAQIEEghcPwoI0BSNFGRBAgQ6CrQONjxo8yPADkOmcaJHEaAAAECOwn8CJDjkNnJw1oJECBAoFHgR4A0HjzvMI9E86zNdEXAOQQIvL0FDZB/9IZAfQH3SfV7XHyFQQOkuLrlEfgm4D7pm4L/JRZYEyCJwZROgAABAj8EBMgPB7/+FvC9ym8KPxAgcCggQA55Mr55NwB8r5Kx6ydqduguAnc/ChqclgXIhLU1LL/iIYUCwCapuEGtaZbAhI+CZQHStjafILP2Wsh52jZJyNIVRWAHgWUB0oYb7xOkrW5HESBAoL5A8ACp3wArJECAQFYBAdLYuX2+TNtnpY2tz3tYuVbmbUXVygVIY2f3+TJtn5U2tj7vYVqZt3dJKhcgSRqlTAIECEQTECDROjKuHiN/EfANzxcQfyRwUqBfgLgaT9I7fLXAsG94XAurW2v+SQJ9AuTbBTPsamyU+FZD46EOyyOQsq29r4WUCHn22JRKi07SJ0B6XzBXsCPUcKVu5xwKaOs7D4R3BP9FFOgTIBFXpqbgAm6rgzdIeSkE1l5HAiTFJqlY5Jnb6orrtyYCPQTWXkcCpEcPl42x9u5j2bJNTIBACAEBEqINV4tYe/dxtWrnEegu4F6qO+mvAY9+rxMgNtBRn723QsCenKfuXmqe9YeZ6gSIDfShrX4MIZB2T0q+EPsnQRF1AiQBthI3FEi55LTJl1I7c9ECJHP31E6AQE6BIg95AmTh9iuyhxYKDphaUwagGvIvgSIPeQ0BsvKK+ou91AtF9lCpnrxpSq1+Ws1QgYYAcUU974BwfW7jHQIEqgs0BEh1gjvrE6539JwbW0B1BF4JCJBXQqHe98QTqh2KIbC5gABJtQGSP/HIv1S7TbEEXgmkC5A0n0Gv5Hd8P3n+7dgyayZwJJAuQHwGHbXTe7kF3B7l7t9+1a8PENfMfrvOip8IRLo9unNhHpx78NYTlCsvO2eSwPoAiXTNTEI3DYH4AncuzINzD96Kb6LCrwLrA+RrRRn/7K4qY9fUTIDATQEBchPw++nF7qq+r8kvBAgQeCHwfwAAAP//VPMRLAAAAAZJREFUAwAAjy+CTaHtsgAAAABJRU5ErkJggg=="
+    },
+    "roadmap": {
+      "projectId": "d8359509-6398-481a-a302-b3a39ad9dd72",
+      "phases": [
+        {
+          "id": "c7a26093-0590-42b5-a5d1-f89613c6f887",
+          "name": "Fase 0: Media Api",
+          "objective": "Levantar la base de datos y generar los controladores de las tablas en sus respectivos lenguajes: JAVA y C#",
+          "featureIds": [
+            "5f9e15c7-ef24-4c93-bb1a-c70a974c2ffb"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "cuando la api arroje el json sin problemas, además de haber definido los protocolos (get, set, etc.) y los verbos. Además de consumir la documentación de css y formar las sodas y sus tragos.",
+          "order": 0
+        },
+        {
+          "id": "e4d043c1-5684-43b7-b40d-fbe52ade23a7",
+          "name": "Fase 1: Seguridad ",
+          "objective": "Blindar la api y consolidar el llamado. (La api se llamara Blush-Api)",
+          "featureIds": [
+            "5f9e15c7-ef24-4c93-bb1a-c70a974c2ffb"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "cuando este todo definido y con sus respectivas reglas (y todo funcione)",
+          "order": 1
+        },
+        {
+          "id": "ba15c6fa-34d1-45c1-b2b5-c6c8befc2228",
+          "name": "Fase 2: Creación de backend básico y prototipado de interfaces (react)",
+          "objective": "Empezar a desarrollar la appweb/mobil y hacer las conexiones principales. Hacer la autenticación.  (login, galería de latas y home) de prueba (no con diseño final)",
+          "featureIds": [
+            "16cf96f3-7067-472f-91a6-6824c9d0523a",
+            "17417292-cf74-40f6-82a2-afc1dc512e4f",
+            "0c263997-fdcf-4ef1-af02-e61630643d73",
+            "aa2d44e6-ba23-4cf9-9062-525ec5f18c7d"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando todo este sin errores y deje iniciar o registrar una sesión, además de visualizar el contenido (latas sin diseño solo información).",
+          "order": 2
+        },
+        {
+          "id": "87b4cd27-19c6-4c50-a8a4-b5f6179db6e2",
+          "name": "Fase 3: Engranaje",
+          "objective": "Preferencias del usuario.",
+          "featureIds": [
+            "d05963a1-fb2f-409b-9a47-a0c34fe25ebe"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando todo este sin errores y funcione.",
+          "order": 3
+        },
+        {
+          "id": "3b6f14c9-d25a-4446-bf83-d002bbd1a593",
+          "name": "Fase 4: Perfil de usuario.",
+          "objective": "Personalización de nombre, etc.",
+          "featureIds": [
+            "c976fb03-0c37-49ee-a2c0-5da3633c249a",
+            "34f7e4ae-dfc2-4a13-a292-e67086924f1e"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando el perfil pueda personalizarse.",
+          "order": 4
+        },
+        {
+          "id": "e6a66827-9b93-4370-83d6-a16a9e241af9",
+          "name": "Fase 5: Consumir lata (1.1)",
+          "objective": "Desarrollar la lógica de UX/UI siguiendo los estándares de diseño internacional.",
+          "featureIds": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando en las pruebas de laboratorio todo sea intuitivo. aun sin funcionalidad.",
+          "order": 5
+        },
+        {
+          "id": "c94fe132-2025-48bc-909e-c928bc56d430",
+          "name": "Fase 6: Consumir lata (1.2)",
+          "objective": "Crear la mecánica de abrir lata con su animación y assets.",
+          "featureIds": [
+            "31c0f3c3-52bf-4ae4-be6c-6d798693f573"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando se vea y funcione bien. ",
+          "order": 6
+        },
+        {
+          "id": "e9bc454c-058f-41f5-8bb0-efce87a6621f",
+          "name": "Fase 7:  Consumir lata (1.3)",
+          "objective": "Consumir la api y mejorar el flujo de esta sección de la app.",
+          "featureIds": [
+            "dbfe394e-6c06-42cf-90d5-9545386b5307"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Que se consuma la información traída de la api.",
+          "order": 7
+        },
+        {
+          "id": "ea0cedc8-e2d6-47b7-b685-113211e4a459",
+          "name": "Fase 8: Consumir lata (1.4)",
+          "objective": "Formular las preguntas del test y mejorar la sección de la app. targetas tipo flash cards",
+          "featureIds": [
+            "25151742-aeca-40ef-800e-80afbebf2aad"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Que se cumpla los estándares de aprendizaje del test y se evalúen correctamente los conocimientos.",
+          "order": 8
+        },
+        {
+          "id": "a4a10f0a-3b5e-47cc-8069-c8986c5a4e46",
+          "name": "Fase 9: Consumir lata  (1.5)",
+          "objective": "Plantar esta parte del trago y su mecánica además de mejorar esta sección de la app.",
+          "featureIds": [
+            "13754e38-cd73-4fab-9761-06f3c1572570"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Que se consuma todo y todo funcione.",
+          "order": 9
+        },
+        {
+          "id": "01c2bff9-c77a-457d-93a8-df535a45f5f8",
+          "name": "Fase 10: Consumir lata (1.6)",
+          "objective": "Prueba final y animaciones, etc.",
+          "featureIds": [
+            "e032daa1-bfc6-479c-be1c-508611621bae"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Que se cetee bien la respuesta y crear un sistema de validación de ejercicio nativo de la api.",
+          "order": 10
+        },
+        {
+          "id": "92fb682b-fc4b-482e-b1bd-755ab87ceaff",
+          "name": "Fase 11: Gestion del usuario",
+          "objective": "Gestión de la cuenta",
+          "featureIds": [
+            "934fb7a3-4d71-49ed-8a8d-89f1ae1e6a34",
+            "e2dc4206-3715-4800-b30a-8dcc740e2d9c"
+          ],
+          "durationWeeks": 0,
+          "successCriteria": "Que todo funciones y se envié el correo para cambiar la contraseña.",
+          "order": 11
+        },
+        {
+          "id": "4167a375-00d7-4864-8af7-05a8d6700c5c",
+          "name": "Fase 12: Mejoras y resoluciones de bugs",
+          "objective": "Mejoras en el backend.",
+          "featureIds": [],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando todo funcione bien.",
+          "order": 12
+        },
+        {
+          "id": "2ee4cbe9-a937-41a2-b4aa-01f1b51b6f25",
+          "name": "Fase 13: Full diseño maximalista",
+          "objective": "Ejecutar un diseño e identidad de la app (la app se llamara Soda Blush), definir sabores de las sodas, los cellos,  easter eggs, etc.",
+          "featureIds": [],
+          "durationWeeks": 0,
+          "successCriteria": "Cuando se vea profesional y bonito.",
+          "order": 13
+        }
+      ]
+    },
+    "prototyping": null
+  }
+}

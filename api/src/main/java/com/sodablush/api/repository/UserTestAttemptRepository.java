@@ -6,5 +6,6 @@ import com.sodablush.api.model.UserTestAttempt;
 
 @Repository 
 public interface UserTestAttemptRepository extends JpaRepository<UserTestAttempt, UUID> {
+    long countByUserIdAndTestId(UUID userId, UUID testId);
 
 }

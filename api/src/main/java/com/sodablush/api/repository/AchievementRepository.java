@@ -9,5 +9,6 @@ import com.sodablush.api.model.Achievement;
 
 @Repository 
 public interface AchievementRepository extends JpaRepository<Achievement,UUID> {
+    java.util.Optional<Achievement> findByCode(String code);
 
 }

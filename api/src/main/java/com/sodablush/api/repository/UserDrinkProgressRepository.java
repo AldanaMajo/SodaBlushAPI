@@ -6,5 +6,12 @@ import com.sodablush.api.model.UserDrinkProgress;
 
 @Repository 
 public interface UserDrinkProgressRepository extends JpaRepository<UserDrinkProgress, UUID> {
+    java.util.Optional<UserDrinkProgress> findByUserIdAndDrinkId(UUID userId, UUID drinkId);
+
+    java.util.List<UserDrinkProgress> findByUserId(UUID userId);
+
+    long countByUserIdAndCanIdAndStatus(UUID userId, UUID canId, String status);
+
+    void deleteByUserId(UUID userId);
 
 }

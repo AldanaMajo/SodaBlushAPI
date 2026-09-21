@@ -6,5 +6,8 @@ import com.sodablush.api.model.UserAchievement;
 
 @Repository 
 public interface UserAchievementRepository extends JpaRepository<UserAchievement, UUID> {
+    java.util.List<UserAchievement> findByUserId(UUID userId);
+
+    java.util.Optional<UserAchievement> findByUserIdAndAchievementId(UUID userId, UUID achievementId);
 
 }

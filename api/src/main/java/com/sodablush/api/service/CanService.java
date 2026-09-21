@@ -2,6 +2,7 @@ package com.sodablush.api.service;
 
 import com.sodablush.api.dto.CanDetailResponseDTO;
 import com.sodablush.api.dto.CanListResponseDTO;
+import com.sodablush.api.exception.NotFoundException;
 import com.sodablush.api.model.Can;
 import com.sodablush.api.repository.CanRepository;
 import com.sodablush.api.repository.UserCanProgressRepository; 
@@ -43,7 +44,8 @@ public class CanService {
             dto.setDifficulty(lata.getDifficulty());
             dto.setFullImageUrl(lata.getFullImageUrl());
 
-            boolean estaBloqueada = lata.getUnlockOrder() > (maxNivelCompletado + 1);
+            boolean estaBloqueada = lata.getUnlockOrder() != null
+                    && lata.getUnlockOrder() > (maxNivelCompletado + 1);
             dto.setIsLocked(estaBloqueada);
 
             latasParaFrontend.add(dto);
@@ -54,7 +56,7 @@ public class CanService {
 //CAN DETAIL
     public CanDetailResponseDTO getCanById(UUID canId) {
         Can lata = canRepository.findById(canId)
-                .orElseThrow(() -> new RuntimeException("Lata no encontrada en la base de datos"));
+                .orElseThrow(() -> new NotFoundException("Lata no encontrada en la base de datos"));
 
         CanDetailResponseDTO dto = new CanDetailResponseDTO();
         dto.setId(lata.getId());
