@@ -10,6 +10,7 @@ import com.sodablush.api.repository.TestRepository;
 import com.sodablush.api.model.Drink;
 import com.sodablush.api.repository.DrinkRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ public class DrinkService {
         this.testRepo = testRepo;
     }
 
+    @Transactional(readOnly = true)
     public List<DrinkDTO> getDrinksForCan(UUID canId) {
         List<Drink> tragos = drinkRepository.findByCanIdOrderByStepOrderAsc(canId);
         
@@ -44,8 +46,7 @@ public class DrinkService {
             dto.setTitle(trago.getTitle());
             dto.setStepOrder(trago.getStepOrder());
             dto.setType(trago.getType());
-            
-            dto.setCanId(trago.getCan().getId()); 
+            dto.setCanId(canId);
             
             tragosParaFrontend.add(dto);
         }
@@ -53,6 +54,7 @@ public class DrinkService {
         return tragosParaFrontend;
     }
     
+    @Transactional(readOnly = true)
     public DrinkDetailResponseDTO getDrinkDetails(UUID drinkId) {
         //busca el trago 
         Drink tragoBase = drinkRepository.findById(drinkId)
@@ -74,6 +76,8 @@ public class DrinkService {
                 dto.setShortText(definicion.getShortText());
                 dto.setAnimatedGifUrl(definicion.getAnimatedGifUrl());
                 dto.setExampleCode(definicion.getExampleCode());
+                dto.setOutputHtml(definicion.getOutputHtml());
+                dto.setOutputCss(definicion.getOutputCss());
                 dto.setTips(definicion.getTips());
             });
 

@@ -23,7 +23,7 @@ public class CodeExercise {
     @JoinColumn (name = "drink_id")
     private Drink drink;
 
-    @Column (name = "instructions")
+    @Column (name = "instruction")
     private String instructions;
 
     @Column (name = "starter_code")
