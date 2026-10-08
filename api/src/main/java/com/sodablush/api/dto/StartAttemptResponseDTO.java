@@ -1,6 +1,7 @@
 package com.sodablush.api.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import lombok.Data;
@@ -11,4 +12,5 @@ public class StartAttemptResponseDTO {
     private UUID testId;
     private Integer livesRemaining;
     private LocalDateTime startedAt;
+    private List<UUID> answeredQuestionIds;
 }

@@ -91,9 +91,22 @@ public class TestService {
         Test test = testRepository.findById(testId)
                 .orElseThrow(() -> new NotFoundException("Test no encontrado"));
 
+        UserTestAttempt abierto = attemptRepository
+                .findFirstByUserIdAndTestIdAndCompletedAtIsNullOrderByStartedAtDesc(user.getId(), testId)
+                .orElse(null);
+
+        if (abierto != null) {
+            if (abierto.getLivesRemaining() != null && abierto.getLivesRemaining() <= 0) {
+                finishAttempt(user, abierto.getId());
+            } else {
+                return toStartDto(abierto);
+            }
+        }
+
         if (test.getMaxAttempts() != null && test.getMaxAttempts() > 0) {
-            long intentos = attemptRepository.countByUserIdAndTestId(user.getId(), testId);
-            if (intentos >= test.getMaxAttempts()) {
+            long cerrados = attemptRepository
+                    .countByUserIdAndTestIdAndCompletedAtIsNotNull(user.getId(), testId);
+            if (cerrados >= test.getMaxAttempts()) {
                 throw new BadRequestException("Ya no tienes intentos disponibles para este test");
             }
         }
@@ -108,12 +121,7 @@ public class TestService {
         intento.setStartedAt(LocalDateTime.now());
         attemptRepository.save(intento);
 
-        StartAttemptResponseDTO dto = new StartAttemptResponseDTO();
-        dto.setAttemptId(intento.getId());
-        dto.setTestId(testId);
-        dto.setLivesRemaining(intento.getLivesRemaining());
-        dto.setStartedAt(intento.getStartedAt());
-        return dto;
+        return toStartDto(intento);
     }
 
     @Transactional
@@ -261,5 +269,21 @@ public class TestService {
             return valor.multiply(new BigDecimal("100"));
         }
         return valor;
+    }
+
+    private StartAttemptResponseDTO toStartDto(UserTestAttempt intento) {
+        StartAttemptResponseDTO dto = new StartAttemptResponseDTO();
+        dto.setAttemptId(intento.getId());
+        dto.setTestId(intento.getTest().getId());
+        dto.setLivesRemaining(intento.getLivesRemaining());
+        dto.setStartedAt(intento.getStartedAt());
+        List<UUID> answered = new ArrayList<>();
+        for (UserTestAnswer r : answerRepository.findByAttemptId(intento.getId())) {
+            if (r.getQuestion() != null) {
+                answered.add(r.getQuestion().getId());
+            }
+        }
+        dto.setAnsweredQuestionIds(answered);
+        return dto;
     }
 }
